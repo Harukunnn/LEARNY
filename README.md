@@ -1,62 +1,46 @@
 # LEARNY
 
-Learny is a lightweight desktop flashcard application inspired by Anki. It stores your decks in `~/.learny_data.json` and provides a spaced-repetition learning experience through a simple Tkinter interface.
-=======
-Learny is a simple flashcard application inspired by Anki. It stores your decks
-in `~/.learny_data.json` and provides a spaced-repetition learning experience.
-=======
-Learny is a simple command-line flashcard application inspired by Anki. It stores your decks in `~/.learny_data.json` and provides a spaced-repetition learning experience.
-
+Learny is a lightweight flashcard application implemented in pure Python. It
+stores all decks in `~/.learny_data.json` and schedules reviews using a simple
+SM‑2 spaced‑repetition algorithm.  A Tkinter GUI lets you manage your cards and
+review them when they become due.
 
 ## Features
 
 - Multiple decks
-- Spaced repetition based on the SM-2 algorithm
-- Add and review cards from a desktop GUI
-- Statistics on how many cards are due
+- Spaced repetition (SM‑2)
+- Desktop GUI to add and review cards
+- Optional command‑line and web interfaces
 
 ## Usage
 
-Run the application with:
+Start the GUI with:
 
 ```bash
 python -m learny
 ```
 
-Use the buttons in the window to manage decks, add cards and review due cards.
-=======
-- Add and review cards from the command line
-- Statistics on how many cards are due
+Within the window you can create decks, add cards and review any cards that are
+due for the day.
 
+### Command‑line interface
 
-## Command-line Usage
-=======
-## Usage
-
+The CLI is still available for quick actions:
 
 ```bash
-# create a deck
-python -m learny add-deck French
-
-# add a card to the deck
-python -m learny add-card French "bonjour" "hello"
-
-# list all decks
+python -m learny add-deck <name>
+python -m learny add-card <deck> <question> <answer>
 python -m learny list
+python -m learny review <deck>
+```
 
-# review due cards
-python -m learny review French
+### Web interface
 
-
-## Web Interface
-
-Learny also ships with a minimal web UI. Run the web server and open your
-browser to manage your decks interactively:
+A very small web server can also be started with:
 
 ```bash
 python -m learny.web
 ```
 
-The server listens on http://localhost:8000/ where you can add decks, add cards
-and review due cards using a simple HTML interface.
+Open <http://localhost:8000/> to manage your decks from the browser.
 
